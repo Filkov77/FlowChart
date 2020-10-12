@@ -7,7 +7,7 @@ import { ClusterNode, Edge, Node } from '@swimlane/ngx-graph';
     styleUrls: ['./chart-container.component.scss']
 })
 export class ChartContainerComponent {
-    @Input() nodes: Node[] | undefined;
+    @Input() nodes!: Node[];
 
     // nodes = [{
     //     'id': '1', 'label': 'Title1', 'meta': { 'forceDimensions': false },
