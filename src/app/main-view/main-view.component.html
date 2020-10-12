@@ -1,0 +1,7 @@
+<div *ngIf="nodes.length">
+    <p>Backend Response: {{chartData | async | json}}</p>
+    <!-- <p>Nodes: {{nodes | json}}</p>
+    <p>Edges: {{edges | json}}</p>
+    <p>Clusters: {{clusters | json}}</p> -->
+    <app-chart-container [nodes]="nodes" [edges]="edges" [clusters]="clusters"></app-chart-container>
+</div>

@@ -1,0 +1,10 @@
+[1010/182243.545:ERROR:crash_report_database_win.cc(498)] failed to stat report
+[1010/182900.613:ERROR:crash_report_database_win.cc(498)] failed to stat report
+[1010/183900.630:ERROR:crash_report_database_win.cc(498)] failed to stat report
+[1010/183900.631:ERROR:filesystem_win.cc(116)] GetFileAttributes C:\Users\filkov\AppData\Local\Temp\.profile\Crashpad\reports\02518e29-8c8c-4e6a-bda5-1fcdfd107491.dmp: Das System kann die angegebene Datei nicht finden. (0x2)
+[1010/183900.633:ERROR:directory_reader_win.cc(43)] FindFirstFile: Das System kann den angegebenen Pfad nicht finden. (0x3)
+[1011/230433.185:ERROR:directory_reader_win.cc(43)] FindFirstFile: Das System kann den angegebenen Pfad nicht finden. (0x3)
+[1011/232541.769:ERROR:directory_reader_win.cc(43)] FindFirstFile: Das System kann den angegebenen Pfad nicht finden. (0x3)
+[1012/213723.167:ERROR:directory_reader_win.cc(43)] FindFirstFile: Das System kann den angegebenen Pfad nicht finden. (0x3)
+[1012/221037.475:ERROR:directory_reader_win.cc(43)] FindFirstFile: Das System kann den angegebenen Pfad nicht finden. (0x3)
+[1012/224628.446:ERROR:directory_reader_win.cc(43)] FindFirstFile: Das System kann den angegebenen Pfad nicht finden. (0x3)
