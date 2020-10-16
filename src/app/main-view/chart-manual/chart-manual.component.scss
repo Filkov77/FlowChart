@@ -6,6 +6,9 @@ table {
     thead {
         border-bottom: solid 1px;
     }
+    th {
+        text-align: center;
+    }
     tr {
         border: none;
         td + td, th + th {
@@ -15,12 +18,12 @@ table {
 }
 
 .node {
-    display: inline-block;
-    height: 35px;
+    // display: inline-block;
+    height: 42px;
     width:120px;
     text-align: center;
-    line-height: 35px;
-    vertical-align: middle;
+    line-height: 42px;
+    // vertical-align: middle;
     border: 1px solid;
     border-radius: 5px;
 
@@ -38,6 +41,17 @@ table {
 
     &.blue {
         background-color: $blue-light;
+    }
+}
+
+.node-prefix {
+    height: 20px;
+    // width:10px;
+    border: 1px solid;
+    border-radius: 2px;
+    font-size: smaller;
+    &.yellow {
+        background-color: $yellow-light;
     }
 }
 

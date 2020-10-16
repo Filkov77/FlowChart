@@ -26,7 +26,8 @@
             "extractCss": true,
             "stylePreprocessorOptions": {
               "includePaths": [
-                "src/assets/css"
+                "src/assets/css",
+                "node_modules/bootstrap/scss"
               ]
             },
             "assets": [
@@ -34,7 +35,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/assets/css/style.scss"
+              "src/assets/css/style.scss",
+              "node_modules/bootstrap/scss/bootstrap.scss"
             ],
             "scripts": []
           },
@@ -93,8 +95,15 @@
               "src/favicon.ico",
               "src/assets"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "node_modules/bootstrap/scss",
+                "src/assets/css"
+              ]
+            },
             "styles": [
-              "src/assets/css/style.scss"
+              "src/assets/css/style.scss",
+              "node_modules/bootstrap/scss/bootstrap.scss"
             ],
             "scripts": []
           }
