@@ -1,0 +1,374 @@
+/* -------------------------------
+	Component - Tabset
+------------------------------- */
+
+// Tab content
+.tab-content {
+    background: $white;
+    border: 1px solid $gray;
+    border-top-color: transparent;
+    padding: 10px;
+}
+
+// Tab-content height
+as-split-area > ngb-tabset > .tab-content {
+    height: calc(100% - 30px);
+    overflow: auto;
+}
+
+// Tab pane
+.tab-pane {
+    height: 100%;
+
+    [app-arender] {
+        height: 100%;
+
+        iframe {
+            height: 100%;
+            width: 100%;
+        }
+    }
+}
+
+// Navigation tabs
+.nav-tabs {
+    padding: 0 8px;
+
+    .nav-item {
+        margin-left: 2px;
+        margin-right: 2px;
+    }
+
+    .nav-link {
+        padding: 4px 12px;
+        background: $gray-light;
+        border-color: $gray;
+        min-width: 120px;
+        text-align: center;
+        color: $black;
+
+        @include transition(color);
+
+        &:hover,
+        &:focus {
+            border-color: $gray;
+            color: $blue;
+        }
+    }
+
+    .nav-link.active,
+    .nav-item.show .nav-link {
+        color: $blue;
+        border-color: $gray $gray $white;
+    }
+
+}
+
+// Document view navigation tabs
+app-tabset {
+    height: 100%;
+
+    .tabset-control {
+        height: 100%;
+        max-height: 100%;
+
+        .tab-container {
+            height: 100%;
+
+            .tab-content {
+                height: calc(100% - 30px);
+                overflow: auto;
+                position: relative;
+
+                pre {
+                    overflow: visible;
+                }
+
+                .empty-document-wrap {
+                    display: flex;
+                    height: 100%;
+                    align-items: center;
+                    justify-content: center;
+
+                    .empty-document-info {
+                        text-align: center;
+
+                        .far {
+                            font-size: 96px;
+                            color: darken($gray, 10%);
+
+                            &:after {
+                                content: "";
+                                display: block;
+                                width: 127px;
+                                height: 12px;
+                                background: $gray-light;
+                                border-radius: 50%;
+                                margin-top: 10px;
+                            }
+                        }
+
+                        span {
+                            display: block;
+                            font-size: 14px;
+                            color: $gray-text;
+                            padding: 20px 0 0;
+                        }
+                    }
+                }
+            }
+
+            .nav-tabs-wrap {
+                position: relative;
+                height: 30px;
+
+                &:before {
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    display: block;
+                    height: 30px;
+                    border-bottom: 1px solid $gray;
+                }
+
+                .nav-tabs-scroll-holder {
+                    position: relative;
+                    margin-left: 8px;
+                    overflow: hidden;
+                    width: calc(100% - 16px);
+                }
+
+                &.nav-tabs-overflow {
+                    .nav-tabs-scroll-holder {
+                        margin-right: 56px;
+                        margin-left: 40px;
+                        width: calc(100% - 104px);
+                    }
+                }
+            }
+
+            .nav-tabs {
+                flex-direction: row;
+                justify-content: flex-start;
+                flex-wrap: nowrap;
+                height: 30px;
+                padding: 0;
+                position: relative;
+                left: 0;
+            }
+
+            .nav-item {
+                &.disabled {
+                    cursor: not-allowed;
+
+                    .nav-link {
+                        pointer-events: none;
+                    }
+                }
+
+                &.tabs-scroll {
+                    width: 30px !important;
+                    position: absolute;
+                    bottom: 0;
+                    display: inline-block;
+
+                    &:before {
+                        content: "";
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                        left: 0;
+                        bottom: 0;
+                        display: block;
+                        height: 30px;
+                        @include border-radius(0.25rem 0.25rem 0 0);
+                    }
+
+                    .nav-link {
+                        min-width: auto;
+                        width: auto;
+                        text-align: center;
+                        padding: 4px;
+                        background: $gray-light;
+                        border: 1px solid $gray;
+                        color: $black;
+                        @include border-radius(0.25rem 0.25rem 0 0);
+
+                        &:hover,
+                        &:focus {
+                            border-color: $gray;
+                            color: $blue;
+                        }
+                    }
+
+                    &.tabs-scroll-left {
+                        left: 8px;
+
+                        &:before {
+                            @include box-shadow(3px 1px 3px $gray);
+                        }
+                    }
+
+                    &.tabs-scroll-right {
+                        right: 34px;
+
+                        &:before {
+                            @include box-shadow(-3px 1px 3px $gray);
+                        }
+                    }
+                }
+
+            }
+
+            .nav-link {
+                position: relative;
+
+                .tab-title {
+                    display: block;
+                    padding-right: 10px;
+
+                    @include ellipsis;
+                    @include transition(color);
+
+                    &.empty-tab {
+                        padding: 0;
+                        min-width: 0;
+                        width: auto;
+                        text-align: center;
+                        color: $gray-dark;
+
+                        .far {
+                            padding-right: 4px;
+                        }
+                    }
+                }
+
+                .remove-document {
+                    position: absolute;
+                    right: 6px;
+                    top: 7px;
+                    color: $gray-dark;
+
+                    @include transition(color);
+                }
+
+            }
+
+            .nav-link:hover,
+            .nav-link:focus,
+            .nav-link.active,
+            .nav-item.show .nav-link {
+                .tab-title {
+                    color: $blue;
+
+                    &.empty-tab {
+                        color: $gray-dark;
+                    }
+                }
+
+                .remove-document {
+                    color: $black;
+
+                    &:hover {
+                        color: $blue-dark;
+                    }
+                }
+            }
+
+            [app-document-container] {
+                padding: 10px;
+                height: 100%;
+                overflow: auto;
+
+                .icon-fullscreen {
+                    position: absolute;
+                    top: 13px;
+                    right: 20px;
+                    width: 30px;
+                    height: 30px;
+                    background: $white;
+                    z-index: 1;
+
+                    &:before {
+                        content: "";
+                        width: 30px;
+                        height: 30px;
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        background: url(#{$img-path}icon-expand.png) no-repeat center center;
+                        opacity: 0.7;
+                    }
+
+                    &:hover:before {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.document-zone {
+    app-tabset {
+        .tabset-control {
+            .tab-container {
+                .nav-item {
+                    width: 150px;
+                }
+
+                .nav-link {
+                    padding: 4px 14px 4px 8px;
+                    width: 150px;
+                    text-align: left;
+                }
+            }
+        }
+    }
+
+    .item-picker-toggle {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+}
+
+.details-zone {
+    app-tabset {
+        .tabset-control {
+            .tab-container {
+                .nav-tabs-overflow {
+                    .nav-tabs-scroll-holder {
+                        width: calc(100% - 150px);
+                    }
+                }
+
+                .nav-item.tabs-scroll {
+                    &.tabs-scroll-right {
+                        right: 80px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.tabset-overflow-control {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top: 10px;
+    right: 10px;
+    z-index: 99;
+}
+
+:fullscreen .tabset-overflow-control {
+    top: 0;
+    right: 0;
+}
+
+::backdrop {
+    background-color: $blue-lighter;
+}
+

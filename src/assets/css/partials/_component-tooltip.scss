@@ -1,0 +1,103 @@
+/* -------------------------------
+	NgbTooltip
+------------------------------- */
+
+.tooltip {
+    font-family: "Roboto", "Noto Sans TC", "Trebuchet MS", Arial, Helvetica, sans-serif;
+
+    &.show {
+        opacity: 1;
+    }
+}
+
+.tooltip-tab-title {
+    .arrow {
+        &::before {
+            border-bottom-color: $gray-dark;
+        }
+    }
+
+    .tooltip-inner {
+        padding: 18px 16px 14px;
+        max-width: 325px;
+        color: $white;
+        text-align: left;
+        background: $gray-dark;
+    }
+
+    &.bs-tooltip-bottom {
+        top: 7px !important;
+
+        .arrow {
+            top: -4px;
+            width: 17px;
+            height: 16px;
+            background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNy4yMzYiIGhlaWdodD0iMTUuNTI2IiB2aWV3Qm94PSIwIDAgMTcuMjM2IDE1LjUyNiI+CiAgPHBhdGggaWQ9IlBvbHlnb25fOSIgZGF0YS1uYW1lPSJQb2x5Z29uIDkiIGQ9Ik02Ljg2OSwzLjE1MWEyLDIsMCwwLDEsMy41LDBsNS4yMiw5LjQwNWEyLDIsMCwwLDEtMS43NDksMi45NzFIMy40YTIsMiwwLDAsMS0xLjc0OS0yLjk3MVoiIGZpbGw9IiM2MTY0NjgiLz4KPC9zdmc+Cg==);
+
+            &::before {
+                display: none;
+            }
+        }
+    }
+
+    &.bs-tooltip-bottom-left {
+        left: -8px !important;
+
+        .arrow {
+            left: 6px;
+        }
+    }
+
+    &.bs-tooltip-bottom-right {
+        left: 15px !important;
+
+        .arrow {
+            right: 5px;
+        }
+    }
+
+    .icon {
+        font-size: 14px;
+        text-align: left;
+    }
+
+    .text {
+        line-height: 1;
+
+        &-dossier {
+            font-size: 10px;
+            max-width: 200px;
+        }
+
+        &-document {
+            font-size: 12px;
+            line-height: 21px;
+        }
+    }
+}
+
+.tooltip-tab-document {
+    margin-bottom: 15px;
+
+    &:last-of-type {
+        margin-bottom: 0;
+    }
+
+    &-top {
+        margin-bottom: 1px;
+    }
+
+    &-bottom {
+        margin-left: 21px;
+    }
+}
+
+.svgMap-tooltip {
+    border: 1px solid $gray-text;
+
+    .svgMap-tooltip-pointer {
+        &:after {
+            border: 1px solid $gray-text;
+        }
+    }
+ }

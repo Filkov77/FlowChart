@@ -25,6 +25,7 @@
     "@types/d3-dispatch": "^2.0.0",
     "@types/d3-drag": "^2.0.0",
     "@types/d3-timer": "^2.0.0",
+    "bootstrap": "^4.5.3",
     "classlist.js": "^1.1.20150312",
     "d3": "^6.2.0",
     "rxjs": "6.6.0",

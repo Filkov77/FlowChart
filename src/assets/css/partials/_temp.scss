@@ -1,0 +1,41 @@
+/* -------------------------------
+	Temporary CSS - Drop your CSS here and it will be moved to appropriate partial
+------------------------------- */
+
+// TODO: Remove this after Arender issue is fixed.
+// Currently, bootstrap applies 'display: none;' to all the non-active tabs. This is causing arender to jump to the first page.
+// While the ARondor team is working to fix the issue in the next release, we use this workaround currently to apply
+// 'visibility: hidden;' and 'height: 0px' instead of 'display: none;'
+[app-document-zone] .tab-content > .tab-pane {
+    display: block;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    visibility: hidden;
+    &.active {
+      visibility: visible;
+      z-index: 50;
+      display: block;
+    }
+
+    // Need to hide app-document-container, otherwise the "fullscreen" button of any xml document will be visible on top of any open arender tabs
+    [app-document-container] {
+      visibility: hidden;
+    }
+
+    &.active [app-document-container] {
+      visibility: visible;
+    }
+
+    //   iframe {
+    //     visibility: hidden;
+    //     height: 0px;
+    //   }
+    //   &.active iframe {
+    //     visibility: visible;
+    //     height: 100%;
+    //   }
+}

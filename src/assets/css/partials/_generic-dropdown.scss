@@ -1,0 +1,35 @@
+.dropdown-menu {
+    padding: 4px 2px;
+    font-size: 14px;
+    color: $black;
+    @include border-radius(3px);
+    border-color: $gray;
+}
+.dropdown-item {
+    position: relative;
+    margin: 2px 0;
+    padding: 3px 10px;
+    color: $black;
+
+    @include border-radius(30px);
+    @include transition();
+
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+        background: $gray-light;
+        color: $black;
+        outline: none;
+    }
+
+    &.disabled,
+    &:disabled {
+        cursor: default;
+        color: $black;
+
+        &:hover {
+            background: none;
+        }
+    }
+}

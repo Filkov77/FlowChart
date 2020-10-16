@@ -1,0 +1,38 @@
+/* -------------------------------
+    CSS Layout
+------------------------------- */
+
+// Vendor styles
+@import "vendor/vendor";
+
+// Core variables and mixins
+@import "modules/variables";
+@import "modules/mixins";
+
+// Base setup
+@import "partials/typography";
+@import "partials/base";
+
+// Generic components
+@import "partials/generic-badges";
+@import "partials/generic-buttons";
+@import "partials/generic-errors";
+@import "partials/generic-form";
+@import "partials/generic-ui-blockers";
+@import "partials/generic-modal";
+@import "partials/generic-dropdown";
+
+// Custom components
+@import "partials/component-modal";
+@import "partials/component-table";
+@import "partials/component-tabset";
+@import "partials/component-tooltip";
+
+// Layout & Views
+@import "partials/layout-boxed";
+
+// Miscellaneous
+@import "partials/misc";
+
+// Temporary CSS
+@import "partials/temp";

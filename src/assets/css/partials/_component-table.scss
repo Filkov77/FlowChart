@@ -1,0 +1,272 @@
+/* -------------------------------
+	Component - Table
+------------------------------- */
+
+.table-sm {
+    th,
+    td {
+        padding: 4px 6px;
+    }
+}
+
+.table-striped {
+    tbody tr:nth-of-type(2n + 1) {
+        background-color: rgba(0, 0, 0, 0.03);
+    }
+
+    &.table-hover tbody tr:hover {
+        background-color: #dcf3fe;
+    }
+}
+
+.table-striped-columns {
+    tbody td:nth-of-type(even) {
+        background-color: $gray-light;
+    }
+}
+
+.table-hover {
+    tbody tr:hover,
+    tbody tr.active {
+        background-color: #dcf3fe;
+    }
+}
+
+// wraps around <table> element and ensures that table container is always 100% of the available height
+// minus the height of pagination element
+.table-container {
+    height: calc(100% - 50px);
+    overflow-x: auto;
+}
+
+.table-grid {
+    margin: 0;
+    border: none;
+    width: 100%;
+    font-size: 13px;
+
+    th {
+        padding: 4px;
+        background: $gray-light;
+
+        .btn.disabled,
+        .btn:disabled {
+            &:not(.btn-link) {
+                background: none;
+
+                &:hover {
+                    background: none;
+                }
+            }
+        }
+    }
+
+    td {
+        position: relative;
+        max-width: 200px;
+        white-space: nowrap;
+        vertical-align: middle;
+    }
+
+    thead {
+        th {
+            white-space: nowrap;
+        }
+    }
+
+    .btn-more {
+        padding: 7px;
+        line-height: 13px;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        min-width: auto;
+
+        @include transition(color);
+
+        &:hover {
+            color: $blue;
+        }
+    }
+
+    .btn-search {
+        @include transition(color);
+
+        &:hover {
+            color: $blue;
+        }
+    }
+
+    &-column-title {
+        display: block;
+        margin-left: 1px;
+
+        & ~ .table-grid-input-filter-container {
+            margin-top: 4px;
+        }
+    }
+
+    &-column-title-icon {
+        display: block;
+        margin-bottom: 2px;
+        width: 24px;
+        text-align: center;
+    }
+
+    &-input-filter-container {
+        position: relative;
+        display: block;
+
+        .table-grid-clear-filter {
+            position: absolute;
+            top: 7px;
+            right: 10px;
+            font-size: 9px;
+            cursor: pointer;
+        }
+
+        .table-grid-filter-icon {
+            position: absolute;
+            top: 6px;
+            right: 6px;
+            font-size: 10px;
+            color: $gray;
+            cursor: default;
+
+            @include transition(opacity);
+        }
+
+        input:focus ~ .table-grid-filter-icon {
+            opacity: 0;
+        }
+    }
+
+    &-input-filter {
+        height: 22px;
+        line-height: 22px;
+        padding: 3px 23px 3px 5px;
+        font-size: 13px;
+    }
+
+    &-dropdown {
+        overflow: visible;
+        text-overflow: unset;
+
+        .dropdown-menu {
+            width: 100%;
+        }
+    }
+
+    &-dropdown-link {
+        width: 100%;
+        padding: 0 20px 0 4px;
+        position: relative;
+        border: none;
+        border-radius: 3px;
+        background: $white;
+        outline: none !important;
+
+        @include ellipsis;
+
+        &:hover {
+            cursor: pointer;
+
+            span {
+                color: $blue;
+            }
+        }
+
+        span {
+            @include transition(color);
+        }
+
+        .fa-archive {
+            color: $brown;
+        }
+
+        .fa-caret-down,
+        .fa-circle-notch {
+            position: absolute;
+            right: 1px;
+            top: 3px;
+            color: $gray-dark;
+        }
+    }
+
+    .dropdown-menu {
+        max-width: 265px;
+        max-height: 265px;
+        overflow-y: auto;
+        border: 1px solid $blue;
+        box-shadow: 2px 2px 6px #dcf3fe;
+        background: lighten($blue, 47%);
+        min-height: 95px;
+        top: calc(100% - 2px);
+    }
+
+    .dropdown-item {
+        cursor: pointer;
+        white-space: pre-wrap;
+        font-size: 13px;
+        @include ellipsis;
+
+        &:hover,
+        &.hover,
+        &:active,
+        &.active,
+        &:focus,
+        &.focus {
+            background: $white;
+        }
+
+        .fa-book {
+            color: $gray-dark;
+        }
+    }
+
+    &-navigation {
+        margin-top: 20px;
+        justify-content: flex-end;
+        z-index: 1;
+
+        .custom-select:focus {
+            box-shadow: none;
+        }
+
+        .pagination {
+            margin-bottom: 0;
+        }
+    }
+
+    &-modal {
+        .modal-content {
+            max-height: 500px;
+            overflow-y: auto;
+        }
+    }
+
+    &-info-text {
+        position: absolute;
+        top: calc(50% - 10px); /* 50% minus half of the element height */
+        left: 50%;
+        transform: translate(-50%, 0);
+
+        &.no-results {
+            text-shadow: 0 1px 0 rgba($gray, 0.2);
+        }
+    }
+
+    &-status {
+        i,
+        span {
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .fas {
+            margin-top: 1px;
+            font-size: 8px;
+        }
+    }
+}

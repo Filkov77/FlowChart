@@ -1,0 +1,46 @@
+@import "modules/variables";
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    thead {
+        border-bottom: solid 1px;
+    }
+    tr {
+        border: none;
+        td + td, th + th {
+            border-left: solid 1px;
+        }
+    }
+}
+
+.node {
+    display: inline-block;
+    height: 35px;
+    width:120px;
+    text-align: center;
+    line-height: 35px;
+    vertical-align: middle;
+    border: 1px solid;
+    border-radius: 5px;
+
+    &.yellow {
+        background-color: $yellow-light;
+    }
+
+    &.red {
+        background-color: $red-light;
+    }
+
+    &.green {
+        background-color: $green-light;
+    }
+
+    &.blue {
+        background-color: $blue-light;
+    }
+}
+
+td.content-centered {
+    text-align: center;
+}
