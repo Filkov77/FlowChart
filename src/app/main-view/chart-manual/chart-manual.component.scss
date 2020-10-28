@@ -11,8 +11,20 @@ table {
     }
     tr {
         border: none;
-        td + td, th + th {
+        td + td:nth-of-type(2),
+        td + td:nth-of-type(4),
+        td + td:nth-of-type(5),
+        th + th {
             border-left: solid 1px;
+        }
+    }
+}
+
+.table-colored {
+    tbody {
+            td:nth-of-type(1),
+            td:nth-of-type(4) {
+            background-color: $gray-light;
         }
     }
 }
@@ -44,12 +56,36 @@ table {
     }
 }
 
-.node-prefix {
+.node-prefix-it::before {
+    content: "IT";
     height: 20px;
     // width:10px;
     border: 1px solid;
     border-radius: 2px;
     font-size: smaller;
+    background-color: $yellow-light;
+    align-self: center;
+}
+
+.node-prefix {
+    height: 20px;
+    width: 7px;
+    border: 1px solid;
+    border-radius: 2px;
+    font-size: smaller;
+    padding-left: 7px;
+    &.yellow {
+        background-color: $yellow-light;
+    }
+}
+
+.node-postfix {
+    height: 20px;
+    width: 7px;
+    border: 1px solid;
+    border-radius: 2px;
+    font-size: smaller;
+    padding-left: 7px;
     &.yellow {
         background-color: $yellow-light;
     }
