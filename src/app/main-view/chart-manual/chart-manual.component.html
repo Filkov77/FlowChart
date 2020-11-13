@@ -29,7 +29,7 @@
                 </td>
                 <td>
                     <div class="d-flex justify-content-center">
-                        <div class="node green">Title3</div>
+                        <div #three class="node green">Title3</div>
                     </div>
                 </td>
                 <td></td>
@@ -42,7 +42,7 @@
                 <td></td>
                 <td>
                     <div class="d-flex justify-content-center">
-                        <div id="4" class="node yellow">Title4</div>
+                        <div #four id="4" class="node yellow">Title4</div>
                         <div class="col-1 align-self-center node-postfix yellow">T</div>
                     </div>
                 </td>
@@ -54,12 +54,13 @@
 </div>
 
 <svg
-    style="position:fixed;top:0;left:0"
+    class="polygon"
     stroke="#000"
     fill="#000"
     strokeWidth="2">
-    <path [attr.d]="path" fill="none" />
-    <polygon
+
+    <path *ngFor="let arrow of arrows" [attr.d]="arrow.path" fill="none" />
+    <polygon *ngFor="let arrow of arrows"
         points="0,-3 6,0, 0,3"
-        [attr.transform]="'translate( '+ ex+','+ey+') rotate('+endAngleAsDegrees+')'" />
+        [attr.transform]="'translate( '+ arrow.ex+','+arrow.ey+') rotate('+arrow.endAngleAsDegrees+')'" />
 </svg>

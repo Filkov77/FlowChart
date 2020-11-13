@@ -1,10 +1,12 @@
 @import "modules/variables";
 
+$base-width: 2px;
+
 table {
     width: 100%;
     border-collapse: collapse;
     thead {
-        border-bottom: solid 1px;
+        border-bottom: solid $base-width;
     }
     th {
         text-align: center;
@@ -36,7 +38,7 @@ table {
     text-align: center;
     line-height: 42px;
     // vertical-align: middle;
-    border: 1px solid;
+    border: 2px solid;
     border-radius: 5px;
 
     &.yellow {
@@ -68,10 +70,15 @@ table {
 }
 
 .node-prefix {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    margin-right: -$base-width;
     height: 20px;
     width: 7px;
-    border: 1px solid;
-    border-radius: 2px;
+    border: $base-width solid;
+    border-radius: 3px;
     font-size: smaller;
     padding-left: 7px;
     &.yellow {
@@ -80,10 +87,15 @@ table {
 }
 
 .node-postfix {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    margin-left: -$base-width;
     height: 20px;
     width: 7px;
-    border: 1px solid;
-    border-radius: 2px;
+    border: $base-width solid;
+    border-radius: 3px;
     font-size: smaller;
     padding-left: 7px;
     &.yellow {
@@ -93,4 +105,12 @@ table {
 
 td.content-centered {
     text-align: center;
+}
+
+svg.polygon {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0px;
+    left: 0px;
 }

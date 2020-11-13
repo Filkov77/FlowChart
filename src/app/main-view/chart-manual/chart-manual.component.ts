@@ -1,6 +1,21 @@
-import { AfterContentInit, AfterViewInit, Component, ElementRef, HostListener, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, HostListener, Input, ViewChild } from '@angular/core';
 import { ClusterNode, Edge, Node } from '@swimlane/ngx-graph';
 import { getArrow } from 'perfect-arrows';
+
+interface Arrow {
+    path: string;
+    ex: number;
+    ey: number;
+    cx: number;
+    cy: number;
+    sx: number;
+    sy: number;
+    ae: number;
+    as: number;
+    ec: number;
+    endAngleAsDegrees: number;
+
+}
 
 @Component({
     selector: 'app-chart-manual',
@@ -42,6 +57,8 @@ export class ChartManualComponent implements AfterViewInit {
 
     @Input() clusters!: ClusterNode[];
 
+    arrows!: Arrow[] | undefined;
+
     path: string | undefined;
     ex = 0;
     ey = 0;
@@ -51,42 +68,80 @@ export class ChartManualComponent implements AfterViewInit {
 
     ngAfterViewInit() {
         setTimeout(() => {
-            this.initArrow();
+            this.initArrows();
         });
     }
 
     @HostListener('window:resize', [])
     private onResize() {
-        this.initArrow();
+        this.initArrows();
     }
 
-    private initArrow() {
-        const firstEl = this.one.nativeElement.getBoundingClientRect();
-        const secondEl = this.two.nativeElement.getBoundingClientRect();
-        const p1 = { x: firstEl.x + firstEl.width, y: (firstEl.y + firstEl.height / 2) };
-        const p2 = { x: secondEl.x, y: (secondEl.y + secondEl.height / 2) };
+    private initArrows() {
+        const elements: [ElementRef<HTMLDivElement>, ElementRef<HTMLDivElement>][] = [
+            [this.one, this.two],
+            [this.three, this.four]
+        ];
 
-        const arrow = getArrow(
-            p1.x,
-            p1.y,
-            p2.x,
-            p2.y,
-            {
-                bow: 0,
-                stretch: 0,
-                padEnd: 6
-            }
-        );
+        this.arrows = [];
 
-        const [sx, sy, cx, cy, ex, ey, ae, as, ec] = arrow;
-        this.ex = ex;
-        this.ey = ey;
-        this.sx = sx;
-        this.sy = sy;
+        elements.forEach(tuple => {
+            const firstEl = tuple[0].nativeElement.getBoundingClientRect();
+            const secondEl = tuple[1].nativeElement.getBoundingClientRect();
+            const p1 = { x: firstEl.x + firstEl.width, y: (firstEl.y + firstEl.height / 2) };
+            const p2 = { x: secondEl.x, y: (secondEl.y + secondEl.height / 2) };
 
-        this.endAngleAsDegrees = ae * (180 / Math.PI);
+            const arrow = getArrow(
+                p1.x,
+                p1.y,
+                p2.x,
+                p2.y,
+                {
+                    bow: 0,
+                    stretch: 0,
+                    padEnd: 6
+                }
+            );
+            const [sx, sy, cx, cy, ex, ey, ae, as, ec] = arrow;
 
-        this.path = `M${sx},${sy} Q${cx},${cy} ${ex},${ey}`;
+            this.arrows = [...this.arrows!, {
+                path: `M${sx},${sy} Q${cx},${cy} ${ex},${ey}`,
+                sx, sy, cx, cy, ex, ey, ae, as, ec,
+                endAngleAsDegrees: ae * (180 / Math.PI)
+            }];
+            this.ex = ex;
+            this.ey = ey;
+            this.sx = sx;
+            this.sy = sy;
+
+            this.endAngleAsDegrees = ae * (180 / Math.PI);
+        });
+        // const firstEl = this.one.nativeElement.getBoundingClientRect();
+        // const secondEl = this.two.nativeElement.getBoundingClientRect();
+        // const p1 = { x: firstEl.x + firstEl.width, y: (firstEl.y + firstEl.height / 2) };
+        // const p2 = { x: secondEl.x, y: (secondEl.y + secondEl.height / 2) };
+
+        // const arrow = getArrow(
+        //     p1.x,
+        //     p1.y,
+        //     p2.x,
+        //     p2.y,
+        //     {
+        //         bow: 0,
+        //         stretch: 0,
+        //         padEnd: 6
+        //     }
+        // );
+
+        // const [sx, sy, cx, cy, ex, ey, ae, as, ec] = arrow;
+        // this.ex = ex;
+        // this.ey = ey;
+        // this.sx = sx;
+        // this.sy = sy;
+
+        // this.endAngleAsDegrees = ae * (180 / Math.PI);
+
+        // this.path = `M${sx},${sy} Q${cx},${cy} ${ex},${ey}`;
     }
 
 
