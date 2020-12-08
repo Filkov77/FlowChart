@@ -14,7 +14,6 @@ interface Arrow {
     as: number;
     ec: number;
     endAngleAsDegrees: number;
-
 }
 
 @Component({
@@ -65,6 +64,13 @@ export class ChartManualComponent implements AfterViewInit {
     sx = 0;
     sy = 0;
     endAngleAsDegrees = 0;
+
+    elementOne: ChartElementModel = { 
+        column: 1,
+        heading: "ItemTranslation",
+        prefix: "IT",
+        title: "ItemTranslation"
+    }
 
     ngAfterViewInit() {
         setTimeout(() => {

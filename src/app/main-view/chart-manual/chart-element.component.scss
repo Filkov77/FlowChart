@@ -2,37 +2,6 @@
 
 $base-width: 2px;
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-    thead {
-        border-bottom: solid $base-width;
-    }
-    th {
-        text-align: center;
-    }
-    tr {
-        border: none;
-        td + td:nth-of-type(2),
-        td + td:nth-of-type(4),
-        td + td:nth-of-type(5),
-        th + th {
-            border-left: solid 1px;
-        }
-    }
-}
-
-.table-colored {
-            td:nth-of-type(1),
-            td:nth-of-type(4) {
-            background-color: $gray-light;
-        }
-        td {
-            padding-top: 1rem;
-            padding-bottom: 1rem;
-        }
-}
-
 .heading {
     margin-top: -20px;
     margin-bottom: -4px;
@@ -109,16 +78,4 @@ table {
     &.yellow {
         background-color: $yellow-light;
     }
-}
-
-td.content-centered {
-    text-align: center;
-}
-
-svg.polygon {
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    top: 0px;
-    left: 0px;
 }

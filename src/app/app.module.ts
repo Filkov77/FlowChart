@@ -8,6 +8,7 @@ import { NgxGraphModule } from '@swimlane/ngx-graph';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ChartContainerComponent } from './main-view/chart-container/chart-container.component';
+import { ChartElementComponent } from './main-view/chart-manual/chart-element.component';
 import { ChartManualComponent } from './main-view/chart-manual/chart-manual.component';
 import { MainViewComponent } from './main-view/main-view.component';
 
@@ -16,7 +17,8 @@ import { MainViewComponent } from './main-view/main-view.component';
         AppComponent,
         MainViewComponent,
         ChartContainerComponent,
-        ChartManualComponent
+        ChartManualComponent,
+        ChartElementComponent
     ],
     imports: [
         BrowserModule,
