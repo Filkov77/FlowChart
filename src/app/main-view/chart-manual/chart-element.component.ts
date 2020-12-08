@@ -1,65 +1,50 @@
-import { AfterContentInit, Component, Input, ViewChild } from '@angular/core';
-
-interface Arrow {
-    path: string;
-    ex: number;
-    ey: number;
-    cx: number;
-    cy: number;
-    sx: number;
-    sy: number;
-    ae: number;
-    as: number;
-    ec: number;
-    endAngleAsDegrees: number;
-}
+import { AfterContentInit, Component, Input } from '@angular/core';
 
 @Component({
     selector: '[app-chart-element]',
     templateUrl: './chart-element.component.html',
     styleUrls: ['./chart-element.component.scss']
 })
-export class ChartElementComponent implements AfterContentInit{
+export class ChartElementComponent implements AfterContentInit {
 
     @Input()
-    chartElement!: ChartElementModel;
+    chartElement: ChartElementModel | undefined;
 
     // TODO create a pipe, consder delegating to parent class
     nodeClass = 'node';
 
     ngAfterContentInit(): void {
-        switch(this.chartElement.column) {
-            case 1: 
+        switch (this.chartElement?.column) {
+            case 1:
                 this.nodeClass = 'node blue';
                 break;
-            case 2: 
+            case 2:
                 this.nodeClass = 'node red';
                 break;
-            case 3: 
+            case 3:
                 this.nodeClass = 'node green';
                 break;
-            case 4: 
+            case 4:
                 this.nodeClass = 'node green';
                 break;
-            case 5: 
+            case 5:
                 this.nodeClass = 'node red';
                 break;
-            case 6: 
+            case 6:
                 this.nodeClass = 'node green';
                 break;
-            case 7: 
+            case 7:
                 this.nodeClass = 'node red';
                 break;
-            case 8: 
+            case 8:
                 this.nodeClass = 'node green';
                 break;
-            case 9: 
+            case 9:
                 this.nodeClass = 'node yellow';
                 break;
-            case 10: 
+            case 10:
                 this.nodeClass = 'node blue';
                 break;
-
         }
     }
 
