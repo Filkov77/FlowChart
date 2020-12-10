@@ -3,8 +3,8 @@
         <div class="heading">{{ chartElement.heading }}</div>
     </div>
     <div class="d-flex flex-row justify-content-center">
-        <div *ngIf="chartElement!.prefix" class="col-1 align-self-center node-prefix yellow">{{ chartElement.prefix }}</div>
-        <div [ngClass]="nodeClass">{{ chartElement.title }}</div>
-        <div *ngIf="chartElement!.postfix" class="col-1 align-self-center node-postfix yellow">{{ chartElement.postfix }}</div>
+        <div #prefix *ngIf="chartElement!.prefix" class="col-1 align-self-center node-prefix yellow">{{ chartElement.prefix }}</div>
+        <div #element [ngClass]="nodeClass" [title]="chartElement.title">{{ chartElement.title }}</div>
+        <div #postfix *ngIf="chartElement!.postfix" class="col-1 align-self-center node-postfix yellow">{{ chartElement.postfix }}</div>
     </div>
 </div>

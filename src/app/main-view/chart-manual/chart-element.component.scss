@@ -10,8 +10,11 @@ $base-width: 2px;
 
 .node {
     // display: inline-block;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
     height: 42px;
-    width:120px;
+    width:160px;
     text-align: center;
     line-height: 42px;
     // vertical-align: middle;
@@ -19,32 +22,36 @@ $base-width: 2px;
     border-radius: 5px;
 
     &.yellow {
-        background-color: $yellow-light;
+        background-color: $yellow-light-chart;
     }
 
-    &.red {
-        background-color: $red-light;
+    &.emerald {
+        background-color: $emerald-chart;
     }
 
-    &.green {
-        background-color: $green-light;
+    &.sapphire {
+        background-color: $sapphire-chart;
+    }
+
+    &.purple {
+        background-color: $purple-chart;
     }
 
     &.blue {
-        background-color: $blue-light;
+        background-color: $blue-chart;
     }
 }
 
-.node-prefix-it::before {
-    content: "IT";
-    height: 20px;
-    // width:10px;
-    border: 1px solid;
-    border-radius: 2px;
-    font-size: smaller;
-    background-color: $yellow-light;
-    align-self: center;
-}
+// .node-prefix-it::before {
+//     content: "IT";
+//     height: 20px;
+//     // width:10px;
+//     border: 1px solid;
+//     border-radius: 2px;
+//     font-size: smaller;
+//     background-color: $yellow-chart;
+//     align-self: center;
+// }
 
 .node-prefix {
     display: flex;
@@ -59,7 +66,7 @@ $base-width: 2px;
     font-size: smaller;
     padding-left: 7px;
     &.yellow {
-        background-color: $yellow-light;
+        background-color: $yellow-chart;
     }
 }
 

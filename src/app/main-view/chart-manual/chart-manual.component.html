@@ -14,11 +14,11 @@
             </tr>
         </thead>
         <tbody>
-            <ng-container *ngFor="let chartRow of (chart | async)">
+            <ng-container *ngFor="let chartRow of chart">
                 <tr>
                     <ng-container *ngFor="let chartCell of chartRow">
                         <td>
-                            <div app-chart-element [chartElement]="chartCell">
+                            <div app-chart-element [chartElement]="chartCell" (edgeOptionsChange)="onSizeChage($event)">
                             </div>
                         </td>
                     </ng-container>
@@ -63,7 +63,7 @@
     </table>
 </div>
 
-<!-- <svg
+<svg
     class="polygon"
     stroke="#000"
     fill="#000"
@@ -73,4 +73,4 @@
     <polygon *ngFor="let arrow of arrows"
         points="0,-3 6,0, 0,3"
         [attr.transform]="'translate( '+ arrow.ex+','+arrow.ey+') rotate('+arrow.endAngleAsDegrees+')'" />
-</svg> -->
+</svg>

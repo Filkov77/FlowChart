@@ -25,99 +25,21 @@ table {
 }
 
 .table-colored {
-            td:nth-of-type(1),
-            td:nth-of-type(5),
-            td:nth-of-type(9),
-            td:nth-of-type(10) {
-            background-color: $gray-light;
-        }
-            th:nth-of-type(1),
-            th:nth-of-type(5),
-            th:nth-of-type(9),
-            th:nth-of-type(10) {
-            background-color: $gray-light;
-        }
-        td {
-            padding-top: 1rem;
-            padding-bottom: 1rem;
-        }
-}
-
-.heading {
-    margin-top: -20px;
-    margin-bottom: -4px;
-    font-weight: 500;
-}
-
-.node {
-    // display: inline-block;
-    height: 42px;
-    width:120px;
-    text-align: center;
-    line-height: 42px;
-    // vertical-align: middle;
-    border: 2px solid;
-    border-radius: 5px;
-
-    &.yellow {
-        background-color: $yellow-light;
+    td:nth-of-type(1),
+    td:nth-of-type(5),
+    td:nth-of-type(9),
+    td:nth-of-type(10) {
+        background-color: $gray-light;
     }
 
-    &.red {
-        background-color: $red-light;
+    th:nth-of-type(1),
+    th:nth-of-type(3),
+    th:last-of-type {
+        background-color: $gray-light;
     }
-
-    &.green {
-        background-color: $green-light;
-    }
-
-    &.blue {
-        background-color: $blue-light;
-    }
-}
-
-.node-prefix-it::before {
-    content: "IT";
-    height: 20px;
-    // width:10px;
-    border: 1px solid;
-    border-radius: 2px;
-    font-size: smaller;
-    background-color: $yellow-light;
-    align-self: center;
-}
-
-.node-prefix {
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    flex-direction: column;
-    margin-right: -$base-width;
-    height: 20px;
-    width: 7px;
-    border: $base-width solid;
-    border-radius: 3px;
-    font-size: smaller;
-    padding-left: 7px;
-    &.yellow {
-        background-color: $yellow-light;
-    }
-}
-
-.node-postfix {
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    flex-direction: column;
-    margin-left: -$base-width;
-    height: 20px;
-    width: 7px;
-    border: $base-width solid;
-    border-radius: 3px;
-    font-size: smaller;
-    padding-left: 7px;
-    &.yellow {
-        background-color: $yellow-light;
+    td {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
     }
 }
 
